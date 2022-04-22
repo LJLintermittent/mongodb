@@ -1,27 +1,49 @@
 package com.learn.mongodemo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.learn.mongodemo.pojo.logistics;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
+@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@SuppressWarnings("all")
+/**
+ * 订单信息实体类
+ */
 public class order {
-    private int id;//订单id
-    private String status;//状态
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
-    private Date orderTime;//下单时间
-    private String shipper;//发货人
-    private String shippingAdress;//发货地址
-    private long shipperPhone;//发货人手机
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "GMT+8")
-    private Date shipTime;//发货时间
-    private String recevier;//接收人
-    private String recevierAddress;//接收地址
-    private long receviePhone;//接收人号码
-    private List<com.learn.mongodemo.pojo.logistics>logistics;//物流信息
 
-    public order(int id, String status, Date orderTime, String shipper, String shippingAdress, long shipperPhone, Date shipTime, String recevier, String recevierAddress, long receviePhone, List<com.learn.mongodemo.pojo.logistics> logistics) {
+    private int id;// 订单id
+
+    private String status;// 状态
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private Date orderTime;// 下单时间
+
+    private String shipper;// 发货人
+
+    private String shippingAdress;// 发货地址
+
+    private long shipperPhone;// 发货人手机
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private Date shipTime;// 发货时间
+
+    private String recevier;// 接收人
+
+    private String recevierAddress;// 接收地址
+
+    private long receviePhone;// 接收人号码
+
+    private List<logistics> logistics;// 物流信息
+
+    public order(int id, String status, Date orderTime, String shipper, String shippingAdress,
+                 long shipperPhone, Date shipTime, String recevier, String recevierAddress,
+                 long receviePhone, List<com.learn.mongodemo.pojo.logistics> logistics) {
         this.id = id;
         this.status = status;
         this.orderTime = orderTime;
@@ -115,11 +137,11 @@ public class order {
         this.receviePhone = receviePhone;
     }
 
-    public List<com.learn.mongodemo.pojo.logistics> getLogistics() {
+    public List<logistics> getLogistics() {
         return logistics;
     }
 
-    public void setLogistics(List<com.learn.mongodemo.pojo.logistics> logistics) {
+    public void setLogistics(List<logistics> logistics) {
         this.logistics = logistics;
     }
 }

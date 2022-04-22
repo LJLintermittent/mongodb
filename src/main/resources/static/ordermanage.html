@@ -55,7 +55,7 @@
         $("#orderbody").html('');
         $("#timezhou").html('');
         $.ajax( {
-            url:"getOrderById",
+            url:"api/test/getOrderById",
             data:{
                 'id':orderid
             },
@@ -92,7 +92,7 @@
         var table = layui.table;//高版本建议把括号去掉，有的低版本，需要加()
         table.render({
             elem: '#ordertable'
-            ,url: 'getAllOrders' //数据接口
+            ,url: 'api/test/getAllOrders' //数据接口
             ,page: false //开启分页
             ,toolbar: '#toolbarDemo'
             ,cols: [[ //表头
@@ -116,7 +116,7 @@
             if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
                     $.ajax({
-                        url:'deleteById',
+                        url:'api/test/deleteById',
                         data: {
                             'id':data.id,
                         },
