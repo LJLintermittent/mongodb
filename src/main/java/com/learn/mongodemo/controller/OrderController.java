@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 一些声明信息
@@ -40,8 +38,10 @@ public class OrderController {
     @PostMapping("/addOrder")
     public String addOrder(order order) {
         order.setStatus("订单已创建");
-        order.setOrderTime(new Date());
-        order.setShipTime(new Date());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        String timeString = dateFormat.format(System.currentTimeMillis());
+        order.setOrderTime(timeString);
+        order.setShipTime(timeString);
         orderService.addOrder(order);
         return "添加成功";
     }
@@ -51,7 +51,9 @@ public class OrderController {
      */
     @PostMapping("/updateOrder")
     public String updateOrder(logistics logistics) {
-        logistics.setOperationTime(new Date());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        String timeString = dateFormat.format(System.currentTimeMillis());
+        logistics.setOperationTime(timeString);
         orderService.addLogisticsAndUpdateStatus(logistics);
         return "添加成功";
     }

@@ -6,23 +6,19 @@ import lombok.*;
 import java.util.Date;
 import java.util.List;
 
-@Data
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-@SuppressWarnings("all")
 /**
  * 订单信息实体类
  */
+@Data
+@SuppressWarnings("all")
 public class order {
 
     private int id;// 订单id
 
     private String status;// 状态
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
-    private Date orderTime;// 下单时间
+    //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private String orderTime;// 下单时间
 
     private String shipper;// 发货人
 
@@ -31,7 +27,7 @@ public class order {
     private long shipperPhone;// 发货人手机
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
-    private Date shipTime;// 发货时间
+    private String shipTime;// 发货时间
 
     private String recevier;// 接收人
 
@@ -41,8 +37,8 @@ public class order {
 
     private List<logistics> logistics;// 物流信息
 
-    public order(int id, String status, Date orderTime, String shipper, String shippingAdress,
-                 long shipperPhone, Date shipTime, String recevier, String recevierAddress,
+    public order(int id, String status, String orderTime, String shipper, String shippingAdress,
+                 long shipperPhone, String shipTime, String recevier, String recevierAddress,
                  long receviePhone, List<com.learn.mongodemo.pojo.logistics> logistics) {
         this.id = id;
         this.status = status;
@@ -73,11 +69,11 @@ public class order {
         this.status = status;
     }
 
-    public Date getOrderTime() {
+    public String getOrderTime() {
         return orderTime;
     }
 
-    public void setOrderTime(Date orderTime) {
+    public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
     }
 
@@ -105,11 +101,11 @@ public class order {
         this.shipperPhone = shipperPhone;
     }
 
-    public Date getShipTime() {
+    public String getShipTime() {
         return shipTime;
     }
 
-    public void setShipTime(Date shipTime) {
+    public void setShipTime(String shipTime) {
         this.shipTime = shipTime;
     }
 

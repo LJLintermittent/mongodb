@@ -5,15 +5,12 @@ import lombok.*;
 
 import java.util.Date;
 
-@SuppressWarnings("all")
-@Data
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 /**
  * 物流信息实体类
  */
+@Data
+@SuppressWarnings("all")
 public class logistics {
 
     private int orderId;// 订单id
@@ -22,8 +19,8 @@ public class logistics {
 
     private String operator;// 操作员
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
-    private Date operationTime;// 操作时间
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    private String operationTime;// 操作时间
 
     private String address;// 地址
 
@@ -32,7 +29,7 @@ public class logistics {
     public logistics() {
     }
 
-    public logistics(int orderId, String operation, String operator, Date operationTime,
+    public logistics(int orderId, String operation, String operator, String operationTime,
                      String address, String details) {
         this.orderId = orderId;
         this.operation = operation;
@@ -58,11 +55,11 @@ public class logistics {
         this.operator = operator;
     }
 
-    public Date getOperationTime() {
+    public String getOperationTime() {
         return operationTime;
     }
 
-    public void setOperationTime(Date operationTime) {
+    public void setOperationTime(String operationTime) {
         this.operationTime = operationTime;
     }
 
