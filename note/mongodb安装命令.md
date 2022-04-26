@@ -8,6 +8,17 @@
 
 5.docker exec -it mongodb mongo iot
 
-6.db.auth("root","123456")
+6.use admin
 
-7.db.createUser({user:"admin",pwd:"admin",roles:[{role:"dbOwner",db:"test"}]})
+7.db.auth("root","root")
+
+8.db.createUser({user:"admin",pwd:"admin",roles:[{role:"dbOwner",db:"test"}]})
+
+9 use test
+
+10.db.test.insertOne({name:"lijiale",age:"22"})
+
+11.db.test.find()
+
+在navicat中通过验证数据库admin的方式输入root，root帐户进行远程连接
+
