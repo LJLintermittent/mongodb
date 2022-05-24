@@ -24,7 +24,7 @@ import java.util.*;
  */
 @RestController
 @SuppressWarnings("all")
-@RequestMapping("api/test")
+@RequestMapping("api/logistics")
 public class OrderController {
 
     public static Logger logger = LoggerFactory.getLogger(OrderController.class);
